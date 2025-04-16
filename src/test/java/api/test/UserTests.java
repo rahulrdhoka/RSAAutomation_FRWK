@@ -62,7 +62,7 @@ public class UserTests {
 		response.then().log().all();
 		Assert.assertEquals(response.getStatusCode(),200);
 		
-		logger.info("**********User info  is displayed ***************");
+		logger.info("**********User Details is displayed ***************");
 		
 	}
 	

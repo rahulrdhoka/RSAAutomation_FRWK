@@ -1,0 +1,24 @@
+# Logs
+logs/
+*.log
+
+# Maven target folder
+target/
+
+# IntelliJ/Eclipse settings
+*.iml
+.idea/
+.classpath
+.project
+.settings/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Test reports
+reports/
+test-output/
+
+# Environment/config files
+.env
