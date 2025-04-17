@@ -82,4 +82,14 @@ public class UserEndPoints2 {
 		}	
 				
 		
+		public static Response returnInventoryByStatus() 
+		{
+			String store_geturl = getURL().getString("store_getInventoryStatus_url");
+			
+			Response response =given().when().get(store_geturl);
+			
+			return response;	
+			
+		}
+		
 }
