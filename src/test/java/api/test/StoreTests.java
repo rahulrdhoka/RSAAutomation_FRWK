@@ -1,19 +1,14 @@
 package api.test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import api.endpoints.UserEndPoints2;
-import io.restassured.matcher.ResponseAwareMatcher;
 import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 
 public class StoreTests {
 
@@ -36,11 +31,19 @@ public Logger logger; // for logs
 	{
 		logger.info("********** Returns a map of status codes to quantities ***************");
 		
-	   Response response = UserEndPoints2.returnInventoryByStatus();
+		Response response = UserEndPoints2.returnInventoryByStatus();
 
 	  // response.then().log().all();
+		
+		ValidatableResponse res = response.then();
+		
+		//System.out.println(res.statusCode(200));
+		
+		res.statusLine("HTTP/1.1 200 OK");
+		
+		res.log().all();
 
-	  System.out.println(response.body().asPrettyString());
+		System.out.println();
 	  
 	  SoftAssert softAssert = new SoftAssert();
 	  
@@ -61,10 +64,7 @@ public Logger logger; // for logs
 	}
 
 
-	private ResponseAwareMatcher<Response> equalTo(int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
 }
+	
+	
+
