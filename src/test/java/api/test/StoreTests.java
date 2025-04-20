@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import api.endpoints.UserEndPoints2;
+import api.endpoints.StoreEndPoints;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
@@ -31,7 +31,7 @@ public Logger logger; // for logs
 	{
 		logger.info("********** Returns a map of status codes to quantities ***************");
 		
-		Response response = UserEndPoints2.returnInventoryByStatus();
+		Response response = StoreEndPoints.returnInventoryByStatus();
 
 	  // response.then().log().all();
 		
